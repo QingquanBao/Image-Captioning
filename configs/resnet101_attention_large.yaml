@@ -1,0 +1,21 @@
+model: resnet101_attention
+outputpath: experiments/resnet101_attention_large
+
+dataset_base_path: /dssg/home/acct-stu/stu464/data/image_caption
+load_img_to_memory: True
+vocab_path: utils/vocab_set.pkl
+embedding_dim: 512
+attention_dim: 512
+decoder_size: 512
+schedule_sampling: none
+schedule_k: 15
+sample_args:
+    method: beam # 'greed' or 'beam'
+train_args:
+    batch_size: 256
+    learning_rate: !!float 1e-3
+    num_epochs: 55
+    save_freq: 10
+eval_args:
+    batch_size: 1
+
