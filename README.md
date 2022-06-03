@@ -1,8 +1,7 @@
-New idea:
-Use Bag of words to weakly supervise the outputs, preventing overfitting ? (but firstly needs to delete those useless words like 'a' 'the' )
 
+## Run
 
-准备好环境后, 跑 baseline (注意将环境初始化部分改成自己的设置):
+Training and evaluating
 
 ```bash
 sbatch run.sh
@@ -38,3 +37,7 @@ python evaluate.py --prediction_file prediction.json \
 * /dssg/home/acct-stu/stu464/.conda/envs/pytorch/lib/python3.7/site-packages/pycocoevalcap/spice/spice-1.0.jar
 * /dssg/home/acct-stu/stu464/.conda/envs/pytorch/lib/python3.7/site-packages/pycocoevalcap/spice/lib/stanford-corenlp-3.6.0.jar
 * /dssg/home/acct-stu/stu464/.conda/envs/pytorch/lib/python3.7/site-packages/pycocoevalcap/spice/lib/stanford-corenlp-3.6.0-models.jar
+
+
+## Reference
+[A pytorch tutorial to image captioning](https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Image-Captioning)

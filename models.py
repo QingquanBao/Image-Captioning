@@ -243,11 +243,12 @@ class DecoderWithAttention(nn.Module):
             # Schedule sampling
             replace_ind = is_replace[:batch_size_t, t]
             if replace_ind.sum() > 0 and t > 0:
-                #embeddings[:batch_size_t, t][replace_ind] = self.embedding(predictions[:batch_size_t, t-1][replace_ind].argmax(1)
-                #                                                            ).detach() 
-                embeddings[:batch_size_t, t][replace_ind] = torch.matmul(
-                                nn.functional.softmax(predictions[:batch_size_t, t-1][replace_ind], dim=1),
-                                                        self.embedding.weight)
+                embeddings[:batch_size_t, t][replace_ind] = self.embedding(predictions[:batch_size_t, t-1][replace_ind].argmax(1)
+                                                                            ).detach() 
+                # soft schedule sampling
+                #embeddings[:batch_size_t, t][replace_ind] = torch.matmul(
+                #                nn.functional.softmax(predictions[:batch_size_t, t-1][replace_ind], dim=1),
+                #                                        self.embedding.weight)
 
             # [batch_size_t, decoder_dim]
             h, c = self.decode_step(
